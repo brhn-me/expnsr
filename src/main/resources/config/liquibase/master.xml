@@ -11,7 +11,14 @@
     <property name="datetimeType" value="datetime(6)" dbms="mysql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221112105039_added_entity_FixedDeposit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221112105040_added_entity_Interest.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221112105041_added_entity_Deposit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221112105042_added_entity_RecurringBills.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221112105043_added_entity_Transaction.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20221112105040_added_entity_constraints_Interest.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221112105041_added_entity_constraints_Deposit.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

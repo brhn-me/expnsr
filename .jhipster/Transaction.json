@@ -1,0 +1,57 @@
+{
+  "applications": "*",
+  "changelogDate": "20221112105043",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "transaction",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "TransactionType",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "Earning,Expense,Saving"
+    },
+    {
+      "fieldName": "primaryCategory",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "secondaryCategory",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "amount",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "due",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tags",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Transaction",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}
