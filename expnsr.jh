@@ -1,0 +1,64 @@
+enum FDStatus {
+    ACTIVE, MATURED, CLOSED
+}
+
+enum FDType {
+    BSP, PSP, MS3, FD, DPS
+}
+
+entity FixedDeposit {
+	id String required,
+    type FDType  required,    
+    issueDate Instant  required,
+    lastRenewDate Instant,
+    maturityDate Instant  required,
+    interestRate Float  required,
+    taxRate Float  required,
+    tenure Integer  required,
+    interestTenure Integer  required,
+	amount BigDecimal  required,
+    maturityAmount BigDecimal  required,    
+    tax BigDecimal  required,
+    monthlyDeposit BigDecimal required,
+    monthlyDepositDate Instant,
+    bank String  required,
+    autoRenew Boolean  required,
+    renewWithInterest Boolean  required,
+    status FDStatus  required
+}
+
+
+entity Interest {
+	id Integer required,
+    date Instant required,
+    interestRate Float required,
+    taxRate Float required,
+    amount BigDecimal required,
+    tax BigDecimal required,
+    verified Boolean
+}
+
+entity Deposit {
+	id Integer required,
+    date Instant required,
+    amount BigDecimal required,
+    verified Boolean
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+    FixedDeposit to Interest{fixedDeposit},
+    FixedDeposit to Deposit{fixedDeposit},
+}
+
+// Set pagination options
+paginate Deposit, Interest, FixedDeposit with infinite-scroll
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceClass
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
