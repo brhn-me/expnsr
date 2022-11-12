@@ -1,0 +1,119 @@
+{
+  "applications": "*",
+  "changelogDate": "20221112105039",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "fixed_deposit",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "FDType",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "BSP,PSP,MS3,FD,DPS"
+    },
+    {
+      "fieldName": "issueDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "lastRenewDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "maturityDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "interestRate",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "taxRate",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "tenure",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "interestTenure",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "amount",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "maturityAmount",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "tax",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "monthlyDeposit",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "monthlyDepositDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "bank",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "autoRenew",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "renewWithInterest",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "FDStatus",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "ACTIVE,MATURED,CLOSED"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "FixedDeposit",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "interest",
+      "otherEntityRelationshipName": "fixedDeposit",
+      "relationshipName": "interest",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "deposit",
+      "otherEntityRelationshipName": "fixedDeposit",
+      "relationshipName": "deposit",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}
